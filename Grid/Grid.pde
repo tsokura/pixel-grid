@@ -25,19 +25,19 @@ void setup() {
   }
 
   colorPalette[0] = color(0);
-  colorPalette[1] = color(200,25,0);
-  colorPalette[2] = color(50);
-  colorPalette[3] = color(75);
-  colorPalette[4] = color(100);
-  colorPalette[5] = color(125);
-  colorPalette[6] = color(150);
-  colorPalette[7] = color(175);
-  colorPalette[8] = color(200);
-  colorPalette[9] = color(225);
+  colorPalette[1] = color(0,0,5);
+  colorPalette[2] = color(0,0,10);
+  colorPalette[3] = color(0,0,20);
+  colorPalette[4] = color(0,0,200);
+  colorPalette[5] = color(0,0,50);
+  colorPalette[6] = color(200,0,70);
+  colorPalette[7] = color(0,0,100);
+  colorPalette[8] = color(0,100,120);
+  colorPalette[9] = color(150,0,150);
 }
 
 void draw() {
-  background(240, 90, 90);
+  background(90, 90, 90);
 
   for (int i=0; i<cols; i++) {
     for (int j=0; j<rows; j++) {
@@ -71,11 +71,62 @@ void mousePressed() {
       }
       if (mousePressed && (mouseButton == RIGHT)) {
        int red = (colorPalette[states[i][j]] >> 16 & 0xFF);
-              int green = (colorPalette[states[i][j]] >> 8 & 0xFF);
+       int green = (colorPalette[states[i][j]] >> 8 & 0xFF);
        int blue = (colorPalette[states[i][j]] & 0xFF);
-       print("r"+(red));
-       print("g"+(green)); 
-       print("b"+(blue)+"-"); 
+       print("pixels.setPixelColor(");
+       
+       if ((i==0) && (j==0)) {
+         print("p[0] + offset");
+         }
+                if ((i==0) && (j==1)) {
+         print("p[1] + offset");
+         }
+                if ((i==0) && (j==2)) {
+         print("p[2] + offset");
+         }
+         if ((i==0) && (j==3)) {
+         print("p[3] + offset");
+         }
+         if ((i==1) && (j==0)) {
+         print("p[4] + offset");
+         }
+         if ((i==1) && (j==1)) {
+         print("p[5] + offset");
+         }
+         if ((i==1) && (j==2)) {
+         print("p[6] + offset");
+         }
+         if ((i==1) && (j==3)) {
+         print("p[7] + offset");
+         }
+         if ((i==2) && (j==0)) {
+         print("p[8] + offset");
+         }
+         if ((i==2) && (j==1)) {
+         print("p[9] + offset");
+         }
+         if ((i==2) && (j==2)) {
+         print("p[10] + offset");
+         }
+         if ((i==2) && (j==3)) {
+         print("p[11] + offset");
+         }
+         if ((i==3) && (j==0)) {
+         print("p[12] + offset");
+         }
+         if ((i==3) && (j==1)) {
+         print("p[13] + offset");
+         }
+         if ((i==3) && (j==2)) {
+         print("p[14] + offset");
+         }
+         if ((i==3) && (j==3)) {
+         print("p[15] + offset");
+         }
+
+       print(","+(red));
+       print(","+(green)); 
+       println(","+(blue)+");"); 
      
       }
     }
